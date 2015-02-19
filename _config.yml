@@ -19,7 +19,7 @@ show_drafts:  null
 limit_posts:  0
 future:       true
 unpublished:  false
-
+git@github.com:GavinZh/GavinZh.github.io.git
 # Conversion
 markdown:     kramdown
 highlighter:  pygments
@@ -85,7 +85,7 @@ follow:
   - class: icon-twitter
     url: http://twitter.com/
   - class: icon-google-plus
-    url: https://plus.google.com/116595571760191938657/about
+    url: https://plus.google.com/
 
 #Links
 customLinks:
@@ -127,7 +127,7 @@ disqus:
 
 duoshuo:
   config: true
-  id: 9leg
+  id: gavinzh
 
 #baidu share config
 baiduShare:
