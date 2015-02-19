@@ -56,7 +56,7 @@ public class TestMain {
 
 |head1|head2|head3|head4
 |:---|:---|:---|:---|
-|row1text1&ensp;|rt2|row1text3&ensp;|row1text4
+|row1text1|rt2|row1text3|row1text4
 |row2text1|row2text2|row2text3|row2text4
 |row3text1|row3text2|row3text3|row3text4
 |row4text1|row4text2|row4text3|row4text4
