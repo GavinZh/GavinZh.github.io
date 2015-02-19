@@ -63,7 +63,9 @@ author:
     name: zhangbiao
     email: zbbupt@163.com
     imageLink: /images/header.jpg
-    simpleIntro: 贵在坚持 让梦想照进现实
+    simpleIntro: 
+      <p>脚踏实地</p>
+      <p>莫慌莫燥</p>
     detailIntro:
       <p>使用过很多方式写博客，都没有坚持下来，不是样式难看，就是没有我需要的功能或者太多的功能(其实就是我懒的写吧)。
       用blogjava记录过一段时间，然后看阿里云怎么火，还半年免费，就弄了台云主机搭建搞了一阵子。
