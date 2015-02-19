@@ -52,6 +52,34 @@ public class TestMain {
 }
 {% endhighlight %}
 
+测试html代码
+{% highlight html %}
+<link href='http://fonts.googleapis.com/css?family=Spirax' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+{% endhighlight %}
+
+测试xml代码
+{% highlight xml %}
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+    http://www.springframework.org/schema/context   http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+ 
+    <context:component-scan base-package="com.9leg.java.spring"/>
+ 
+    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+        <property name="locations">
+          <list>
+            <value>classpath:spring/config.properties</value>
+          </list>
+        </property>
+      </bean>
+</beans>
+{% endhighlight %}
+
 测试表格（必须下空一行），不太美观，使用的时候在该列的最长字符处加个空格
 
 |head1|head2|head3|head4
