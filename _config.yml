@@ -19,7 +19,7 @@ show_drafts:  null
 limit_posts:  0
 future:       true
 unpublished:  false
-git@github.com:GavinZh/GavinZh.github.io.git
+
 # Conversion
 markdown:     kramdown
 highlighter:  pygments
