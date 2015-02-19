@@ -37,7 +37,6 @@ permalink:     /:categories/:title
 paginate_path: /page:num
 timezone:      null
 
-
 #Site config
 title: GavinZh
 description: 个人博客
