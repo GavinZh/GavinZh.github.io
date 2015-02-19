@@ -2,15 +2,16 @@
 layout: post
 title: 博客语法
 description: 对各种语法逐一测试
+date: 2014-11-28
 category: blog
 ---
 
 **说明：本文仅是对写文章的一些语法进行了测试，无实际内容...下面开始**
 
-# 测试 h1
-一级标题不能用
+# 测试 h1（无需下空一行）
+一级标题
 
-## 测试 h2（无需下空一行）
+## 测试 h2
 二级标题
 
 ### 测试 h3
@@ -22,40 +23,34 @@ category: blog
 测试粗体
 **粗体**
 
-测试斜体（斜体不能用）
+测试斜体
 *斜体*
 
-测试引用（无需下空一行，跟标题一样）
->引用
+测试引用
+> 这里是引用
 
-测试下划线
-- - - 
+测试行代码
+`static 段内代码`
 
-测试行代码 （必须下空一行）
+测试java代码（下空一行和不空都一样）
 
-`_post`
-
-测试段落代码1（必须下空一行）
-
-```ruby
-/* hello world demo */
-#include <stdio.h>
-int main(int argc, char **argv)
-{
-        printf("Hello, World!\n");
-        return 0;
+{% highlight java %} 
+public class TestMain {
+  public static void main(String[] args) {
+      String str = new String();
+      Caller caller = new Caller();
+      caller.call(str);
+  }
+  static class Caller {
+      public void call(Object obj) {
+          System.out.println("an Object instance in Caller");
+      } 
+      public void call(String str) {
+          System.out.println("a String instance in in Caller");
+      }
+  }
 }
-```
-
-测试段落代码2（必须下空一行，前面空格加四个或一个tab制表符）
-
-    /* hello world demo */
-    #include <stdio.h>
-    int main(int argc, char **argv)
-    {
-            printf("Hello, World!\n");
-            return 0;
-    }
+{% endhighlight %}
 
 测试表格（必须下空一行），不太美观，使用的时候在该列的最长字符处加个空格
 
