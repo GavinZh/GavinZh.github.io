@@ -95,7 +95,7 @@ android:layout_span		合并列，从当前开始向后合并，2的话就是合�
 
 ## 编写布局文件一些注意事项
 
-* 一些控件的text不要直接用汉字等字符串，先在**string.xml**文件中声明**<string name="menu_settings">Settings</string>**， 然后再通过** @string/Settings**使用，目的是在有**中文**时国际化的时候方便，直接操作一个string.xml文件即可
+* 一些控件的text不要直接用汉字等字符串，先在**string.xml**文件中声明**\<string name="menu_settings">Settings\</string>**， 然后再通过* @string/Settings*使用，目的是在有**中文**时国际化的时候方便，直接操作一个string.xml文件即可
 * EditText可以设置输入类型，比如说电话号码就可以限制为只能输入数字
 
 - - -
