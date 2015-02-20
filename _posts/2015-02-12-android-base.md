@@ -21,21 +21,28 @@ Dalvik VM和JVM的比较，首先来看**JVM**：
 * 编译后的文件格式：.java->.class->.dex(通过dex.bat)->.apk。其中.dex是android中的字节码文件，可在DVM中解释执行
 * 一个apk文件只有一个dex文件，节省资源
 
+- - - 
+
 ## 在MyEclipse中的环境搭建
 个人用的是MyEclipse来操作的，所以介绍一下在MyEclipse下android开发环境的搭建
+
 ### 几个概念
 **sdk**：standard develop kit，android的标准开发包  
 **avd**：android virtual device  
 **adt**：android develop tools，eclipse及MyEclipse的插件，更方便在MyEclipse中创建管理android工程  
+
 ### 具体安装配置过程
 
-* 先单独下载sdk包：[sdk下载地址][1]。然后在系统环境变量的Path中添加tools文件夹的路径，比如我的就是`D:\Program Files\android-sdk\tools;`
+* 先单独下载sdk包：[sdk下载地址][1]。然后在系统环境变量的Path中添加tools文件夹的路径，比如我的就是**D:\Program Files\android-sdk\tools;**
 * 用sdk manager来更新sdk，注意要是下载不成功，可以在tools中下面force成http，然后在host文件中加developer.android.com,dl.google.com,dl-ssl.google.com的ip，这样一般可以下载成功
 * MyEclipse中在线下载安装adt，help->install new software，填写 https://dl-ssl.google.com/android/eclipse/ ，完后next就行，一路全选
-* 在MyEclipse中，window->preferences->android那一项，填写sdk的路径，比如我的是`D:\Program Files\android-sdk`
+* 在MyEclipse中，window->preferences->android那一项，填写sdk的路径，比如我的是**D:\Program Files\android-sdk**
 * 注意Android_SDK_HOME是用来保存安卓虚拟机的位置的目录，并不是指sdk的目录，在创建AVD之前要在系统环境变量中自己配置一下Android_SDK_HOME，然后模拟器相关的信息就会在Android_SDK_HOME\.android目录下
 
+- - - 
+
 ## AVD及SDK补充
+
 ### sdk manager中的一些解释
 **extra目录下：**
 ![sdk manager](/images/blog/sdk-manager-2.PNG)
@@ -71,9 +78,7 @@ sdk目录如下图，这个与上述sdk manager中的下载列表中的内容都
 * sdk\system-images（关于模拟器的镜像）：与sdk manager下载时选择的项目对应，创建AVD时可选    
 * sdk\add-on（临时目录）：sdk下载过程中的临时目录，下载完就自动清空
 
-
 ### 创建AVD时注意项
-
 在创建安卓虚拟机时，device definition中的一些常见分辨率：
 
 * VGA最早指的是显示器480*640这种显示模式
@@ -101,19 +106,23 @@ sdk目录如下图，这个与上述sdk manager中的下载列表中的内容都
 **解决方法一：**连上互联网     
 **解决方法二：**连上局域网， 然后设置如下：
 
-```ruby
+{% highlight java %} 
 局域网IP，比如:192.168.1.100
 掩码，比如：255.255.255.0
 网关，一般是：192.168.1.1
 DNS服务器，局域网的路由器IP，一般是：192.168.1.1
-```
+{% endhighlight %}
+
 **解决方法三：**什么网都没连， 然后设置如下：
 
-```ruby
+{% highlight java %} 
 IP:192.168.1.100
 掩码：255.255.255.0
 网关和DNS：192.168.1.100
-```
+{% endhighlight %}
+
+- - - 
+
 ## Android工程目录结构
 android整体的目录结构如下图
 ![android目录](/images/blog/android-directory.PNG)
@@ -139,44 +148,48 @@ android整体的目录结构如下图
 * layout：布局文件，可以定义一个具体界面。
 * values：一些字符串及布局的模板样式定义存放在这里，之后要使用相关变量或样式直接用"名字"来呼唤即可。strings.xml 存放android字符串.dimens.xml 存放屏幕适配所用到的尺寸.style.xml 存放android下显示的样式.
 
-例如： `android:text="@string/hello_world"`  @代表R.java文件 ,string代表R文件的string内部类，然后就找到了叫"hello_world"这个string。而这个string具体的定义地方在/values/strings.xml。在Activity中使用`getResources().getString(resourceId)`或`getResources().getText(resourceId)`取得资源         
+例如： **android:text="@string/hello_world"**  @代表R.java文件 ,string代表R文件的string内部类，然后就找到了叫"hello_world"这个string。而这个string具体的定义地方在/values/strings.xml。在Activity中使用**getResources().getString(resourceId)**或**getResources().getText(resourceId)**取得资源         
 
 * anim 存放定义动画的XML文件。
-* xml 在Activity中使用`getResources().getXML()`读取该目录下的XML资源文件。
-* raw 该目录用于存放应用使用到的原始文件，如音效文件等。编译软件时，这些数据不会被编译，它们被直接加入到程序安装包里。 为了在程序中使用这些资源，你可以调用`getResources().openRawResource(ID)` , 参数ID形式：`R.raw.somefilename`。
+* xml 在Activity中使用**getResources().getXML()**读取该目录下的XML资源文件。
+* raw 该目录用于存放应用使用到的原始文件，如音效文件等。编译软件时，这些数据不会被编译，它们被直接加入到程序安装包里。 为了在程序中使用这些资源，你可以调用**getResources().openRawResource(ID)** , 参数ID形式：**R.raw.somefilename**。
 * menu: 存放android的OptionsMenu菜单的布局.
 * values-sw600dp：7寸平板所对应的值，string.xml
 * values-v14：指定4.0版本以上的手机显示的样式，style.xml
 
 **AndroidManifest.xml：**当前应用程序的清单文件，包括：程序的配置信息，启动图标，应用程序名称，是否在桌面显示图标(有一段代码)，包名，版本号，最小最大版本号等，android的四大组件都需要在application节点进行相应配置。如果应用使用到了系统内置的应用(如电话服务、互联网服务、短信服务、GPS服务等等)，你还需在该文件中声明使用权限。在此处修改了包名，会相应修改到gen处的包名，但是src处的包名不变，所以需要在src的java文件中引入新的R文件出处。**另外：**应用程序只有签名和包名完全一致才是同一个应用程序~     
 **Tip：**应用程序开启时候显示的第一个activity，在其intent-filter下包含如下参数配置   
-`/action android:name="android.intent.action.MAIN"/`     
-`/category android:name="android.intent.category.LAUNCHER"/`     
+**/action android:name="android.intent.action.MAIN"/**     
+**/category android:name="android.intent.category.LAUNCHER"/**     
 
 **project.properties: **项目环境信息，一般无需修改。指定当前工程采用的开发工具包的版本（即compile with）
 
 **proguard-project.txt: **加密当前程序所使用.
 
+- - - 
+
 ## 一些常用命令 -- adb&emulator
 实际上，在MyEclipse中DDMS就是用到了adb来显示连接的设备，并对设备进行监控调试    
 
-我们可以自己配置一下系统环境变量，Path里加一个`D:\Program Files\android-sdk\platform-tools`，然后在cmd中就可以使用adb命令，添加Path里加一个`D:\Program Files\android-sdk\tools`，就可以使用emulator命令，常见命令如下：    
+我们可以自己配置一下系统环境变量，Path里加一个**D:\Program Files\android-sdk\platform-tools**，然后在cmd中就可以使用adb命令，添加Path里加一个**D:\Program Files\android-sdk\tools**，就可以使用emulator命令，常见命令如下：    
 ![adb使用](/images/blog/adb-use.PNG)
 
-* `adb devices`：就可以查看所有连接的设备，若是adb挂掉了，也可以用这个命令来顺便启动adb进程
-* `adb logcat`：打出log日志，若是adb挂了，也可以顺便启动adb进程
-* `adb shell`：挂载到linux空间，直接命令操作查看Android系统(也是一个Linux系统)，多个模拟器时：`adb -s emulator-5554 shell`来启动
-* `adb install XXX.apk`：安装应用程序
-* `adb uninstall 应用程序包名`：卸载应用程序，注意必须得是包名，在清单文件中查找    
+* **adb devices**：就可以查看所有连接的设备，若是adb挂掉了，也可以用这个命令来顺便启动adb进程
+* **adb logcat**：打出log日志，若是adb挂了，也可以顺便启动adb进程
+* **adb shell**：挂载到linux空间，直接命令操作查看Android系统(也是一个Linux系统)，多个模拟器时：**adb -s emulator-5554 shell**来启动
+* **adb install XXX.apk**：安装应用程序
+* **adb uninstall 应用程序包名**：卸载应用程序，注意必须得是包名，在清单文件中查找    
 **注：**两个应用程序相同就必须得签名和包名都相同，即使包名相同，签名不同的情况下，没法完成覆盖安装，也就保护了应用程序不被非法更新覆盖      
-* `adb pull <remote> <local>`：从模拟器或设备取东西
-* `adb push <local> <remote>`：往模拟器或设备存东西，比如：`adb push C:\hello.apk /mnt/sdcard/a.apk`
-* `adb kill-server`和 `adb start-server`：关闭和开启adb进程    
-**注：**在MyEclipse中点击reset adb就是执行了 `adb kill-server`和`adb start-server`两个指令   
-* `emulator -avd AVD名字`：开启模拟器，名字就是avd Manager中设置的名字，如：`emulator -avd first-phone`
-* 另外在cmd中：`netstat –ano`可以查看占用端口情况，因为有时其他程序占用了端口会导致调试桥打不开
+* **adb pull <remote> <local>**：从模拟器或设备取东西
+* **adb push <local> <remote>**：往模拟器或设备存东西，比如：**adb push C:\hello.apk /mnt/sdcard/a.apk**
+* **adb kill-server**和 **adb start-server**：关闭和开启adb进程    
+**注：**在MyEclipse中点击reset adb就是执行了 **adb kill-server**和**adb start-server**两个指令   
+* **emulator -avd AVD名字**：开启模拟器，名字就是avd Manager中设置的名字，如：**emulator -avd first-phone**
+* 另外在cmd中：**netstat –ano**可以查看占用端口情况，因为有时其他程序占用了端口会导致调试桥打不开
 
 其实在MyEclipse中的图形化的界面都是调用上述的一些工具来实现，必要的时候到cmd中来执行，效率比较高。
+
+- - - 
 
 ## Android程序打包安装过程
 打包安装过程，选中工程->Run as Android Application，这时可以看控制台的log，对应于下面的步骤  :
@@ -189,26 +202,29 @@ android整体的目录结构如下图
 * 把清单文件AndroidMenifest.xml转换成二进制，至此，所有apk的所有文件组成已全部就绪
 * 使用debug.keystore（位于.android目录下，之前avd设置的那个目录，每台电脑都独一无二）对整个应用程序进行打包签名，apk解压后META-INF里面就有程序的签名信息
 
-**然后**加载apk文件到模拟器中，具体就是通过adb push把apk文件加载到`/data/local/tmp/xxx.apk`
+**然后**加载apk文件到模拟器中，具体就是通过adb push把apk文件加载到**/data/local/tmp/xxx.apk**
 
 **最后**就会安装应用程序，过程如下(实际先push一下，再加上执行下面的过程，就是adb install)： 
 
-* 把`/data/local/tmp/xxx.apk`文件, **剪切** 至`/data/app/包名-1.apk`
+* 把**/data/local/tmp/xxx.apk**文件, **剪切** 至**/data/app/包名-1.apk**
 * 在/data/data/文件夹下以**包名**创建一个文件夹, 用于存储当前程序的数据
 * 在/data/system下的packages.xml和packages.list文件中分别添加一条关于应用程序的记录，是根据包名来记录的     
 **packages.xml文件中：**
 
-```ruby
+{% highlight java %} 
 <package  name="com.gavin.helloword" codePath="/data/app/com.gavin.helloword-1.apk" nativeLibraryPath="/data/data/com.gavin.helloword/lib" flags="0" ft="14921a759c0" it="14921a75be2" ut="14921a75be2" version="1" userId="10043">
 <sigs count="1">
 <cert index="4" key="签名：有N个多" />
-```
+{% endhighlight %}
+
 **list文件中：**前面是包名，后面是数据的目录     
-`com.gavin.helloword` 10043 1 `/data/data/com.gavin.helloword`  
+**com.gavin.helloword** 10043 1 **/data/data/com.gavin.helloword**  
 
 **卸载就是一个相反的过程**，把上述的一些文件和目录一一删除
 
 如果项目太大，就不会通过Run as android application来进行部署，ant+adb install来，其作用就是跟run as…一样的。通过ant执行编译成.class再到.dex，再打包成apk，再签名；然后通过adb安装的整个部署流程，这样执行效率更高
+
+- - - 
 
 ## 总结
 讲述了Android工程的一些基础知识，包括：安卓虚拟机Dalvik VM的介绍，在MyEclipse中搭建Android的编译环境，Android SDK Manager及SDK目录下的各个目录的作用及对应关系，简述了MyEclipse中一个Android工程的目录结构，介绍了adb和emulator工具及其常用命令，最后详述了Android的apk打包安装过程。
