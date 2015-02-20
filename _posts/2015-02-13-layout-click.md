@@ -15,6 +15,7 @@ category: Android
 **Tip：**为了适应不同分辨率的屏幕，控件都用dp，字来用sp
 
 - - -
+
 ## 几种常见布局
 布局就是规定了Android界面的整体排布，由**res/layout**下的xml文件来描述。具体有五种布局，分别是：相对布局、线性布局、。我们在新建的时候选择Android XML Layout File，然后选择一个主布局（root element）即可。先看一下在布局文件中常用到的一些单位，然后对具体的五种布局分别阐述。
 
@@ -89,13 +90,16 @@ android:collapseColumns		隐藏列
 android:layout_column	指定显示到哪一列（比如原先是在第二列，先把他弄到第一列，就设为1）
 android:layout_span		合并列，从当前开始向后合并，2的话就是合并后面一个
 {% endhighlight %}
+
 - - -
+
 ## 编写布局文件一些注意事项
 
 * 一些控件的text不要直接用汉字等字符串，先在**string.xml**文件中声明**<string name="menu_settings">Settings</string>**， 然后再通过** @string/Settings**使用，目的是在有**中文**时国际化的时候方便，直接操作一个string.xml文件即可
 * EditText可以设置输入类型，比如说电话号码就可以限制为只能输入数字
 
 - - -
+
 ## 按钮的几种点击事件
 
 ### onclick+点击方法
@@ -122,6 +126,7 @@ button.setOnClickListener(new View.OnClickListener() {
 * 还可以直接activity直接实现OnClickListener接口，然后**button.setOnClickListener(this);**即可
 
 - - -
+
 ## 总结
 上面的几种方法用的最多的就是activity直接实现OnClickListener接口，然后内部类的两种方式也用的较多。第一种onclick的方法用的较少，原因就是这样做会使文件关联性较差，不符合程序设计的**"解耦思想"**，你必须查看xml文件才能知道这边这个**public void startCall()**方法的具体用途。
 
