@@ -48,13 +48,13 @@ favicon: /images/shortcut.jpg
 #Nav config
 nav:
   - text: 首页
-    url: /index.html
+    url: index.html
   - text: 分类目录 
-    url: /categories.html
+    url: categories.html
   - text: 文章归档
-    url: /archives.html
+    url: archives.html
   - text: 联系我
-    url: /contact.html
+    url: contact.html
   - text: 友情链接
     url: links.html
 
