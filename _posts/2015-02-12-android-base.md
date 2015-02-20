@@ -45,6 +45,7 @@ Dalvik VM和JVM的比较，首先来看**JVM**：
 
 ### sdk manager中的一些解释
 **extra目录下：**
+
 ![sdk manager](/images/blog/sdk-manager-2.PNG)
 
 * android support library是实现版本的向下兼容
@@ -52,6 +53,7 @@ Dalvik VM和JVM的比较，首先来看**JVM**：
 * extra中还有些有关推送和用户分析的一些扩展。
 
 每个版本都有对应的**API level**，在对应目录下面有：
+
 ![sdk manager](/images/blog/sdk-manager-1.PNG)
 
 * sdk platform(用到的一些jar包)
@@ -61,11 +63,14 @@ Dalvik VM和JVM的比较，首先来看**JVM**：
 * sdk的全部源代码（source for android sdk）
 
 **tools**节点下
+
 ![sdk manager](/images/blog/sdk-manager-3.PNG)
+
 sdk tools，sdk platform-tools，build-tools在下面均会讲到
 
 ### sdk目录下一些常用项
 sdk目录如下图，这个与上述sdk manager中的下载列表中的内容都是相对应的，二者结合理解
+
 ![sdk目录](/images/blog/sdk-file.PNG)
 
 * 在sdk\platform-tools下（关于连接管理调试设备）：adb.exe（android debug bridge），是在ddmm中左边那一栏显示连接的一些设备，若是设备显示不出来，可以在下拉栏选择reset adb   
@@ -81,11 +86,11 @@ sdk目录如下图，这个与上述sdk manager中的下载列表中的内容都
 ### 创建AVD时注意项
 在创建安卓虚拟机时，device definition中的一些常见分辨率：
 
-* VGA最早指的是显示器480*640这种显示模式
-* QVGA：240*320（quarter 1/2*1/2）
-* HVGA：320*480（640的half）
-* WVGA：480*800（wide，变800了）
-* FWVGA：480*854    
+* VGA最早指的是显示器480 \* 640这种显示模式
+* QVGA：240 \* 320（quarter 1/2 \* 1/2）
+* HVGA：320 \* 480（640的half）
+* WVGA：480 \* 800（wide，变800了）
+* FWVGA：480 \* 854    
 选择的时候选大的会占用较多的内存，选个小的就行了，HVGA或WVGA
 
 另外一些参数：
@@ -101,7 +106,9 @@ sdk目录如下图，这个与上述sdk manager中的下载列表中的内容都
 **问题一：**android模拟器无法保存数据      
 每创建一个模拟器，都会在每个模拟器的对应目录下生成四个文件夹，用来标记这四个当前模拟器已经开启，见下图。正常退出模拟器，这四个文件夹会删除。若电脑意外重启或者模拟器非正常关闭，这几个文件夹不会被删除，系统任务中模拟器还在运行，就会导致新开的模拟器无法保存数据。    
 **解决方法**：手动删除这四个lock文件夹并重新开启模拟器
+
 ![avd目录](/images/blog/android-avd.PNG)
+
 **问题二：**android模拟器无信号     
 **解决方法一：**连上互联网     
 **解决方法二：**连上局域网， 然后设置如下：
@@ -125,11 +132,15 @@ IP:192.168.1.100
 
 ## Android工程目录结构
 android整体的目录结构如下图
+
 ![android目录](/images/blog/android-directory.PNG)
+
 在workspace中的目录中与这个工程目录基本相似，需要注意的是源码所在目录下的.settings文件夹，里面有一些配置信息，若是意外关闭，MyEclipse打不开，把这个目录删掉即可  
 
 **下面对目录结构依次说明：**
+
 ![android目录](/images/blog/android-directory-2.PNG)
+
 **src：**包含了自己编写的java源文件   
 
 **gen：**自动生成的一些文件，R.java,BuildConfig.java。其中R.java文件存放res目录下资源的ID，自动生成的，方便之后的操作，别改动。Android开发工具会自动根据你放入res目录的资源，同步更新修改R.java文件。R.java在应用中起到了字典的作用，它包含了各种资源的id，通过R.java，应用可以很方便地找到对应资源。另外编绎器也会检查R.java列表中的资源是否被使用到，没有被使用到的资源不会编绎进软件中，这样可以减少应用在手机占用的空间。       
@@ -139,7 +150,9 @@ android整体的目录结构如下图
 **assets：**资产目录，存放程序需要的一些媒体文件，比如图片，数据库等，将来会被打包到应用程序apk中。Android除了提供/res目录存放资源文件外，在/assets目录也可以存放资源文件，而且/assets目录下的资源文件不会在R.java自动生成ID，所以读取/assets目录下的文件必须指定文件的路径，如：file:///android_asset/xxx.3gp            
 
 **bin：**工程的编译目录. 存放一些编译时产生的临时文件和当前工程的.apk文件。project->clean可以清空
+
 ![android目录](/images/blog/android-directory-3.PNG)
+
 **lib：**一些当前工程依赖的第三方jar包，这儿加了会被添加到android private libraries目录   
 
 **res：**资源目录
@@ -157,21 +170,22 @@ android整体的目录结构如下图
 * values-sw600dp：7寸平板所对应的值，string.xml
 * values-v14：指定4.0版本以上的手机显示的样式，style.xml
 
-**AndroidManifest.xml：**当前应用程序的清单文件，包括：程序的配置信息，启动图标，应用程序名称，是否在桌面显示图标(有一段代码)，包名，版本号，最小最大版本号等，android的四大组件都需要在application节点进行相应配置。如果应用使用到了系统内置的应用(如电话服务、互联网服务、短信服务、GPS服务等等)，你还需在该文件中声明使用权限。在此处修改了包名，会相应修改到gen处的包名，但是src处的包名不变，所以需要在src的java文件中引入新的R文件出处。**另外：**应用程序只有签名和包名完全一致才是同一个应用程序~     
+**AndroidManifest.xml：** 当前应用程序的清单文件，包括：程序的配置信息，启动图标，应用程序名称，是否在桌面显示图标(有一段代码)，包名，版本号，最小最大版本号等，android的四大组件都需要在application节点进行相应配置。如果应用使用到了系统内置的应用(如电话服务、互联网服务、短信服务、GPS服务等等)，你还需在该文件中声明使用权限。在此处修改了包名，会相应修改到gen处的包名，但是src处的包名不变，所以需要在src的java文件中引入新的R文件出处。**另外：**应用程序只有签名和包名完全一致才是同一个应用程序~     
 **Tip：**应用程序开启时候显示的第一个activity，在其intent-filter下包含如下参数配置   
 **/action android:name="android.intent.action.MAIN"/**     
 **/category android:name="android.intent.category.LAUNCHER"/**     
 
-**project.properties: **项目环境信息，一般无需修改。指定当前工程采用的开发工具包的版本（即compile with）
+**project.properties：**项目环境信息，一般无需修改。指定当前工程采用的开发工具包的版本（即compile with）
 
-**proguard-project.txt: **加密当前程序所使用.
+**proguard-project.txt：**加密当前程序所使用.
 
 - - - 
 
-## 一些常用命令 -- adb&emulator
+## 一些常用命令 -- adb & emulator
 实际上，在MyEclipse中DDMS就是用到了adb来显示连接的设备，并对设备进行监控调试    
 
-我们可以自己配置一下系统环境变量，Path里加一个**D:\Program Files\android-sdk\platform-tools**，然后在cmd中就可以使用adb命令，添加Path里加一个**D:\Program Files\android-sdk\tools**，就可以使用emulator命令，常见命令如下：    
+我们可以自己配置一下系统环境变量，Path里加一个**D:\Program Files\android-sdk\platform-tools**，然后在cmd中就可以使用adb命令，添加Path里加一个**D:\Program Files\android-sdk\tools**，就可以使用emulator命令，常见命令如下： 
+
 ![adb使用](/images/blog/adb-use.PNG)
 
 * **adb devices**：就可以查看所有连接的设备，若是adb挂掉了，也可以用这个命令来顺便启动adb进程
@@ -180,8 +194,8 @@ android整体的目录结构如下图
 * **adb install XXX.apk**：安装应用程序
 * **adb uninstall 应用程序包名**：卸载应用程序，注意必须得是包名，在清单文件中查找    
 **注：**两个应用程序相同就必须得签名和包名都相同，即使包名相同，签名不同的情况下，没法完成覆盖安装，也就保护了应用程序不被非法更新覆盖      
-* **adb pull <remote> <local>**：从模拟器或设备取东西
-* **adb push <local> <remote>**：往模拟器或设备存东西，比如：**adb push C:\hello.apk /mnt/sdcard/a.apk**
+* **adb pull [remote] [local]**：从模拟器或设备取东西
+* **adb push [local] [remote]**：往模拟器或设备存东西，比如：*adb push C:\hello.apk /mnt/sdcard/a.apk*
 * **adb kill-server**和 **adb start-server**：关闭和开启adb进程    
 **注：**在MyEclipse中点击reset adb就是执行了 **adb kill-server**和**adb start-server**两个指令   
 * **emulator -avd AVD名字**：开启模拟器，名字就是avd Manager中设置的名字，如：**emulator -avd first-phone**

@@ -110,7 +110,8 @@ public class TestMain {
     <li>d</li>
 </ul>
 
-**测试图片**（无需下空一行,可以是本地或者是图片的网址）
+**测试图片**（下空一行,可以是本地或者是图片的网址）
+
 ![Taylor](/images/other/taylor-01.jpg)
 
 **贴网址相关**
