@@ -119,7 +119,7 @@ Windows版的下载地址在这里：[真正的显示](http://code.google.com/p/
 
 通过辨识标签（例如1,2,.. a,b...）来定义，然后在下边解释。标签可以是空的，如下面的Github
 
-[百度][1]   [淘宝][2]   [Github][]
+[百度][1]   [淘宝][2]   [Github][]    
 [FrontMatter](http://jekyllrb.com/docs/frontmatter/){:target="_blank"}
 
 *  [百度][1]
@@ -128,5 +128,5 @@ Windows版的下载地址在这里：[真正的显示](http://code.google.com/p/
 
 
 [Github]: http://github.com "Github（前面冒号处至少一个以上空格或tab）"
-[1]: http://www.baidu.com  "跳往百度" {:target="_blank"}
+[1]: (http://www.baidu.com  "跳往百度"){:target="_blank"}
 [2]: http://www.taobao.com  "跳往淘宝"
