@@ -2,7 +2,8 @@
 layout: post
 title: Java中的多线程下载
 description: 简述了Java中的多线程下载以及断点下载机制
-category: blog
+date: 2014-12-19
+category: Java
 ---
 
 ## 预备知识

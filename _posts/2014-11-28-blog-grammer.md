@@ -3,7 +3,7 @@ layout: post
 title: 博客语法
 description: 对各种语法逐一测试
 date: 2014-11-28
-category: blog
+category: Blog
 ---
 
 **说明：本文仅是对写文章的一些语法进行了测试，无实际内容...下面开始**
@@ -85,7 +85,7 @@ public class TestMain {
 |head1|head2|head3|head4
 |:---|:---|:---|:---|
 |row1text1|rt2|row1text3|row1text4
-|row2text1|row2text2|row2text3|row2text4
+|row2text1|row2text2&ensp;|row2text3|row2text4
 |row3text1|row3text2|row3text3|row3text4
 |row4text1|row4text2|row4text3|row4text4
 
@@ -112,7 +112,7 @@ public class TestMain {
 
 Windows版的下载地址在这里：[真正的显示](http://code.google.com/p/msysgit/downloads/list "放上去会显示此提示")。
 <ul>
-	<li> a <a href="https://www.dnspod.cn/Support">使用html语法</a></li>
+	<li> a <a href="https://www.dnspod.cn/Support" target="_blank">使用html语法---新标签打开</a></li>
 	<li> b </li>
 </ul>
 **注：**由于列表用的是html语法，所以在列表中需要用到html语法来贴网址

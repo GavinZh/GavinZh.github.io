@@ -2,7 +2,8 @@
 layout: post
 title: Android一些基础知识
 description: 包括Dalvik VM，安卓环境的配置，目录结构等基础知识
-category: blog
+date: 2015-02-12
+category: Android
 ---
 
 ## Dalvik VM

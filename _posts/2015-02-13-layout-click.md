@@ -2,7 +2,8 @@
 layout: post
 title: Android布局及点击事件
 description: Android五大布局、布局文件的叙述，以及四种点击事件的总结
-category: blog
+date: 2015-02-13
+category: Android
 ---
 
 ## 常见的单位 
