@@ -3,7 +3,7 @@ layout: post
 title: MyEclipse的一些使用技巧
 description: 自己使用总结的一些MyEclipse使用技巧
 date: 2015-02-21
-category: Software
+category: Android
 ---
 
 ## 软件使用
