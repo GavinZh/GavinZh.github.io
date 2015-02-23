@@ -22,7 +22,7 @@ category: Android
 ### 根据测试的次数
 
 **冒烟测试**：smoke test，不停点击，点点点，虐虐虐。android monkey 可以来帮助我们执行，可以设置执行哪个应用程序，执行多少次等     
-使用方法：adb shell monkey -p \<程序的包名> -v  \<事件的数量>         
+使用方法：`adb shell monkey -p \<程序的包名> -v  \<事件的数量>`         
 **压力测试**：Android用的不多，Web网站用的多，看极限承受能力
 
 - - -
