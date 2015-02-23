@@ -15,14 +15,14 @@ category: Android
 
 ### 根据测试的粒度
 
-**方法测试**：测试某一个方法的接收和返回数据、运行是否会出现问题
-**单元测试**：理解成一些个方法的测试，又称模块测试，是开发者编写的一小段代码，用于检验被测代码的一个很小的、很明确的**功能**是否正确
+**方法测试**：测试某一个方法的接收和返回数据、运行是否会出现问题     
+**单元测试**：理解成一些个方法的测试，又称模块测试，是开发者编写的一小段代码，用于检验被测代码的一个很小的、很明确的**功能**是否正确      
 **集成测试**：有关联的几个不同模块，一起测试。是单元测试的逻辑扩展。它的最简单的形式是：两个已经测试过的单元组合成一个组件，并且测试它们之间的接口
 
 ### 根据测试的次数
 
 **冒烟测试**：smoke test，不停点击，点点点，虐虐虐。android monkey 可以来帮助我们执行，可以设置执行哪个应用程序，执行多少次等     
-使用方法：adb shell monkey -p <程序的包名> -v <事件的数量>
+使用方法：adb shell monkey -p <程序的包名> -v <事件的数量>      
 **压力测试**：Android用的不多，Web网站用的多，看极限承受能力
 
 - - -
@@ -67,8 +67,7 @@ public class Test extends AndroidTestCase {
 
 ###  Android Test Project
 
-之前的Junit测试是在一个工程内部写的测试类来测试的，我们可以在外部的工程来测试         
-这就是在新建的时候选择Android Test Project，新建测试工程的时候就会选择一个你要测的那个工程，之后的操作只需编写一个继承自AndroidTestCase测试类，然后写测试方法就行，无需配置manifest文件
+之前的Junit测试是在一个工程内部写的测试类来测试的，我们可以在外部的工程来测试，这就是在新建的时候选择Android Test Project，新建测试工程的时候就会选择一个你要测的那个工程，之后的操作只需编写一个继承自AndroidTestCase测试类，然后写测试方法就行，无需配置manifest文件
 
 - - -
 
@@ -78,11 +77,11 @@ public class Test extends AndroidTestCase {
 android因为虚拟机环境不同，实际运行在一个实际的设备，运行的日志没办法直接在windows的控制台输出。这些日志在手机内部的缓冲区，我们可以通过logcat来取出这些日志。通过adb logcat来获取。
 
 log信息的等级：
-**verbose**：提醒  黑色
-**debug**：调试  蓝色
-**info**：信息  绿色    与system.out同颜色
-**warn**：警告  橙色  与systrm.err同颜色
-**error**：错误  红色
+* **verbose**：提醒  黑色
+* **debug**：调试  蓝色
+* **info**：信息  绿色    与system.out同颜色
+* **warn**：警告  橙色  与systrm.err同颜色
+* **error**：错误  红色
 
 在某处打印log可以这样写：    
 **Log.v(tag,msg);**        
@@ -93,7 +92,7 @@ v代表verbose；tag是输出后的log的标签，自己设置，一般就是类
 
 ## Junit测试配合debug
 
-我们可以debug as android application，也可以编写好Junit测试之后，**选中对应的方法**debug as Android Junit Test。
+我们可以debug as android application，也可以编写好Junit测试之后，**选中对应的方法**debug as Android Junit Test。一些常用操作如下：
 
 * resume是从前一个断点运行到下一个断点
 * 进入step into(F5)之后若发现进了系统类，不是自己想调试的，就可以step return跳出
