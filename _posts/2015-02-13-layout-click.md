@@ -125,6 +125,8 @@ button.setOnClickListener(new View.OnClickListener() {
 * 也可以单独在外面新建一个内部类实现OnClickListener接口，然后**button.setOnClickListener(new MyListener());**即可
 * 还可以直接activity直接实现OnClickListener接口，然后**button.setOnClickListener(this);**即可
 
+以上的三种都可以在自己写的onClick方法中，实现多个点击事件，通过**view.getid**来获取不同的事件源
+
 - - -
 
 ## 总结
