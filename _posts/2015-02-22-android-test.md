@@ -22,7 +22,7 @@ category: Android
 ### 根据测试的次数
 
 **冒烟测试**：smoke test，不停点击，点点点，虐虐虐。android monkey 可以来帮助我们执行，可以设置执行哪个应用程序，执行多少次等     
-使用方法：adb shell monkey -p <程序的包名> -v <事件的数量>      
+使用方法：adb shell monkey -p <程序的包名> -v <事件的数量>          
 **压力测试**：Android用的不多，Web网站用的多，看极限承受能力
 
 - - -
@@ -77,6 +77,7 @@ public class Test extends AndroidTestCase {
 android因为虚拟机环境不同，实际运行在一个实际的设备，运行的日志没办法直接在windows的控制台输出。这些日志在手机内部的缓冲区，我们可以通过logcat来取出这些日志。通过adb logcat来获取。
 
 log信息的等级：
+
 * **verbose**：提醒  黑色
 * **debug**：调试  蓝色
 * **info**：信息  绿色    与system.out同颜色
