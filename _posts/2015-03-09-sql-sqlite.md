@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 博客语法
-description: 对各种语法逐一测试
-date: 2014-11-28
-category: Blog
+title: sqlite的操作
+description: sqlite的操作
+date: 2015-03-09
+category: Android
 ---
 
 在java中操作数据库，我们需要首先加载驱动，然后连接数据库，最后才能对数据库进行操作。在Android下也是同样的步骤，不过我们使用Sqlite软件，可以对数据库便捷操作。相关的加载驱动和连接数据库操作无需专门去自己实现，我们只需关注操作数据库本身。
