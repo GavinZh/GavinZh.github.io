@@ -12,8 +12,8 @@ category: Android
 **setOutput：**指定输出位置和编码方法      
 **startDocument**和**xmlSerializer.endDocument()：**标识xml文件的开头和结尾      
 **startTag**和**xmlSerializer.endTag：**具体的内部小标签的开始和结尾       
-**attribute：**在节点中追加属性，例如<person id="@@"> ....</person>
-**text：**在节点后的属性，例如<name>@@</name>
+**attribute：**在节点中追加属性，例如\<person id="@@"\> ....\</person>          
+**text：**在节点后的属性，例如\<name\>@@ \</name\>
 
 {% highlight java %} 
 private void writeXmlToLocal() {
@@ -75,11 +75,11 @@ private void writeXmlToLocal() {
 ## 解析本地xml文件
 
 用到的是XmlPullParser类，获得XmlPullParser对象之后，就可以选定指定的xml文件进行解析。其中的几个重要方法：     
-**setInput：**指定解析的文件(通过一个输入流)盒编码方式      
+**setInput：**指定解析的文件(通过一个输入流)和编码方式      
 **getEventType：**获得事件类型，即标签类型，主要有：START_DOCUMENT，START_TAG等。从而可以通过判断标签类型来进一步读取数据         
 **getName：**获取节点名称，person，name等具体的名字            
 **getAttributeValue：**与上面的attribute对应，从节点中读取信息      
-**nextText：**得到的是下一个文本，与上面的text对应，用于在获取完节点名称之后，获取其中的信息
+**nextText：**与上面的text对应，用于在获取完节点名称之后，获取其中的信息               
 **next：**获取下一个事件类型
 
 {% highlight java %} 
