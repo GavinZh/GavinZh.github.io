@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Android下的测试
+title: Junit测试
 description: 主要是Junit单元测试
 date: 2015-02-22
 category: Android

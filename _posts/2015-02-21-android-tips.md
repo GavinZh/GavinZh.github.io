@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Android一些知识点
+title: 一些知识点--Android
 description: 零碎的知识点，需要时直接在这里找
 date: 2015-02-21
 category: Android

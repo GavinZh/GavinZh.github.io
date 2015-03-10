@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Android中的权限以及存储方式
+title: 权限以及存储方式
 description: Android中的权限以及存储方式，包括内外部存储
 date: 2015-02-22
 category: Android
