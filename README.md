@@ -1,5 +1,7 @@
-#zJiaJun.github.io
+#GavinZh's Blog
 
 
-##[Blog](http://www.9leg.com/)
+##[Blog](http://gavinzh.github.io/)
+
+### Thanks for [9leg's](http://9leg.com/) Blog Theme.
 
